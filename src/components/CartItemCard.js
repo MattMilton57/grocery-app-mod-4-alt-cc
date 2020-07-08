@@ -2,12 +2,13 @@ import React from "react";
 
 
 
-const GroceryItemCard = props => {
+const CartItemCard = props => {
 
   const handleclick = () => {
-    const purchased = props.item
-    console.log(purchased)
-    props.intoTheCart(purchased)
+    const remove = props.item
+    console.log(remove)
+    props.deleteMe(remove)
+    
   }
   
   return (
@@ -35,4 +36,4 @@ const GroceryItemCard = props => {
   );
 };
 
-export default GroceryItemCard;
+export default CartItemCard;

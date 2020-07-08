@@ -1,14 +1,18 @@
 import React, { Component } from "react";
+import GroceryItemCard from "../components/GroceryItemCard";
 
 class ItemContainer extends Component {
-  //your code here
+  
+  sendGroceries(){
+    return this.props.groceries.map((food) => <GroceryItemCard item={food} intoTheCart={this.props.intoTheCart}/>)
+  }
 
   render() {
     return (
       <div className="ui four column grid">
         <div className="row">
           Available Grocery Items
-          {/*...and here..*/}
+          {this.sendGroceries()}
         </div>
       </div>
     );

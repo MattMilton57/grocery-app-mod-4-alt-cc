@@ -9,35 +9,45 @@ class AddItemForm extends Component {
         price: null
     }
 
+    updateDatabase(e) {
+        e.preventDefault()
+        const nameState = this.state.name
+        const newItem = {
+            name: nameState,
+
+        }
+        console.log(newItem)
+    }
+
     render() {
         return (
             <div>
                 <h2>New Grocery Item Form</h2>
-                <form onSubmit={()=>console.log("hook something up here")}>
+                <form onSubmit={(e)=>this.updateDatabase(e)}>
                     <input 
                         placeholder='name' 
                         name='name' 
                         value={this.state.name} 
-                        onChange={()=>console.log("hook something up here")}>    
+                        onChange={(event)=>this.setState({name:event.target.value})}>    
                     </input>
                     <input 
                         placeholder='description' 
                         name='description'
                         value={this.state.description} 
-                        onChange={()=>console.log("hook something up here")}>
+                        onChange={(event)=>this.setState({description:event.target.value})}> 
                     </input>
                     <input 
                         placeholder='image URL' 
                         name='image' 
                         value={this.state.image} 
-                        onChange={()=>console.log("hook something up here")}>
+                        onChange={(event)=>this.setState({image:event.target.value})}> 
                     </input>
                     <input 
                         type='number' 
                         placeholder='price' 
                         name='price' 
                         value={this.state.price} 
-                        onChange={()=>console.log("hook something up here")}>
+                        onChange={(event)=>this.setState({number:event.target.value})}> 
                     </input>
                     <button type='submit'>Add Grocery Item</button>
                 </form>
